@@ -1,0 +1,12 @@
+ 
+
+* {
+	font-family: 'David Libre', serif;
+}
+
+h1, h2, h3 {
+	font-family: 'Dosis', sans-serif;
+}
+.button-add, .button-sub, .button-del{
+    cursor:pointer;
+}
