@@ -19,7 +19,11 @@ const Cart = db.define('cart', {
  		 primaryKey: true,
         autoIncrement: true
     },
-    name: Sequelize.STRING,
+    name: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      unique: true
+    },
     quantity: Sequelize.BOOLEAN,
     price: Sequelize.INTEGER
 });

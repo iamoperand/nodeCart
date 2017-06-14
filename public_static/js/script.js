@@ -47,6 +47,7 @@ $(function(){
 			newproduct: product
 		}, function(data){
 				console.log("Added");
+                window.alert('Product ' + product.name + " added " + product.quantity + " times successfully!");
 		})
 		 
 
