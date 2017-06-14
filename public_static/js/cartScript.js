@@ -35,7 +35,7 @@ $(function(){
 		//get the product id / S.No. of the row
 		var product_name = nameElement.innerText;
 		var quantity = +(ancestor.children[3].innerText) + 1;
-		$.post('/cart/increment', {name: product_name, quantum: quantity}, function(data){
+		$.post('/product/increment', {name: product_name, quantum: quantity}, function(data){
 
 				refreshView(data);
 		})
@@ -51,12 +51,12 @@ $(function(){
 		var product_name = nameElement.innerText;
 		console.log('Quantity is: ', +(ancestor.children[3].innerText)-1);
 		if(+(ancestor.children[3].innerText) <= 1){
-			$.post('/cart/delete', {name: product_name}, function(data){
+			$.post('/product/delete', {name: product_name}, function(data){
 				refreshView(data);
 			})	
 		}else{
 			var quantity = +(ancestor.children[3].innerText) - 1;
-		$.post('/cart/decrement', {name: product_name, quantum: quantity}, function(data){
+		$.post('/product/decrement', {name: product_name, quantum: quantity}, function(data){
 			refreshView(data);
 		});
 		
@@ -76,7 +76,7 @@ $(function(){
 		console.log("nameElement ",  nameElement.innerText);
 		//get the product id
 		var product_name = nameElement.innerText;
-		$.post('/cart/delete', {name: product_name}, function(data){
+		$.post('/product/delete', {name: product_name}, function(data){
 			refreshView(data);
 		})	
 		//ancestor.remove();

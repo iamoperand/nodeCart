@@ -30,7 +30,7 @@ route.post('/new', function(req, res){
 			res.send(err);
 		});
 })
-route.post('/cart/increment', function(req, res){
+route.post('/product/increment', function(req, res){
 	let product_name = req.body.name;
 	let quantum = req.body.quantum;
 		data.incrementQuantity(product_name, quantum).then(() => {
@@ -40,7 +40,7 @@ route.post('/cart/increment', function(req, res){
 		});
 })
 
-route.post('/cart/decrement', function(req, res){
+route.post('/product/decrement', function(req, res){
 	let product_name = req.body.name;
 	let quantum = req.body.quantum;
 		data.decrementQuantity(product_name, quantum).then(() => {
@@ -49,7 +49,7 @@ route.post('/cart/decrement', function(req, res){
 			res.send(err);
 		});
 })
-route.post('/cart/delete', function(req, res){
+route.post('/product/delete', function(req, res){
 	let product_name = req.body.name;
 	//let quantum = req.body.quantum;
 		data.deleteProduct(product_name).then(() => {
