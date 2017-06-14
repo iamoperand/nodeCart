@@ -5,18 +5,11 @@
 const route = require('express').Router();
 const data = require('../data');
 
-/*
-
-	Routes
-		/add -POST
-		/ -GET
-		/
-*/
 route.get('/cart/getcart', function(req, res){
 	data.getProducts().then((results) => {
 		res.send(results);
 	})
-	//res.send("Request is handled here");
+	
 });
 
 route.post('/new', function(req, res){
@@ -29,7 +22,8 @@ route.post('/new', function(req, res){
 		}).catch((err) => {
 			res.send(err);
 		});
-})
+});
+
 route.post('/product/increment', function(req, res){
 	let product_name = req.body.name;
 	let quantum = req.body.quantum;
@@ -38,7 +32,7 @@ route.post('/product/increment', function(req, res){
 		}).catch((err) => {
 			res.send(err);
 		});
-})
+});
 
 route.post('/product/decrement', function(req, res){
 	let product_name = req.body.name;
@@ -48,15 +42,15 @@ route.post('/product/decrement', function(req, res){
 		}).catch((err) => {
 			res.send(err);
 		});
-})
+});
+
 route.post('/product/delete', function(req, res){
 	let product_name = req.body.name;
-	//let quantum = req.body.quantum;
 		data.deleteProduct(product_name).then(() => {
 			res.redirect('/cart/getcart');
 		}).catch((err) => {
 			res.send(err);
 		});
-})
+});
 
 module.exports = route;

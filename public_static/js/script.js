@@ -1,15 +1,18 @@
+/*
+    JS File for index.html
+*/
 $(function(){
 
 
-
+    //Assignment Click-Event handlers to all the elements who have a data-id attribute
 	$('[data-id]').click(function(){
 		console.log($(this).attr('data-id'));
 			var siblings = $(this).siblings();
             var name, price, quantity;
             
             price = siblings[0].innerText;
-            //size = siblings[2].innerText;
             quantity = siblings[2].value;
+            
             //Condition-check for QUANTITY input
             if(!quantity){
                 alert('This is a required field');
@@ -43,6 +46,8 @@ $(function(){
 
             console.log("products: ", product);
 		
+
+        //POST HTTP method to create a new entry if it doesn't exist and updating the entry if it exists.
 		$.post('/new', {
 			newproduct: product
 		}, function(data){
