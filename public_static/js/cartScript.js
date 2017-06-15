@@ -15,6 +15,7 @@ $(function(){
 			'<div>Your shopping cart is empty!</div><a href="./index.html" style="text-decoration: none;font-size: 3rem;">Shop Now</a></div> ');
 		}else{
 			var cartlist = "";
+			var totalAmount = 0;
 			var i = 1;
 	        //looping the array to fill in the values into the cartlist string
 	        for (var product of products) {
@@ -27,12 +28,15 @@ $(function(){
 					i+' class="button-add"/></td><td class="text-center"><img src="./images/negative.png" width="32" data-id='+i+
 					' class="button-sub" /></td>'+
 					'<td class="text-center"><img src="./images/delete.png" width="32" data-id='+i+' class="button-del" /></td></tr>'
-
+				totalAmount += (product.quantity * (product.price));
 	        	 i++;   
         	}	
 		}
 		
 	$('#cartlist').html(cartlist);
+
+	
+	$('#totalAmount').html(totalAmount.toLocaleString());
 		
 	//Click handler for Add-Button (Incremental)	
 	$('.button-add').click(function(){

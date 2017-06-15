@@ -3,10 +3,22 @@
 * {
 	font-family: 'David Libre', serif;
 }
-
+.price {
+	font-size:  1.2em;
+	font-weight: 700;
+}
 h1, h2, h3 {
 	font-family: 'Dosis', sans-serif;
 }
 .button-add, .button-sub, .button-del{
     cursor:pointer;
+}
+
+table{
+	font-size:  1.2em;
+
+}
+nav{
+	font-size:  1.2em;
+
 }
